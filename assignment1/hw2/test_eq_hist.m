@@ -1,0 +1,16 @@
+I = imread('./lena.jpg');
+[h, lut, eq_I] = HistogramEqualization(I);
+eq_h = compute_hist(eq_I);
+figure;
+image(I);
+title('origin image');
+figure;
+image(eq_I);
+title('hist equalization image');
+x = 0 : 255;
+figure;
+bar(x, h(:, 1));
+title('origin histogram');
+figure;
+bar(x, eq_h(:, 1));
+title('equalization histogram');
