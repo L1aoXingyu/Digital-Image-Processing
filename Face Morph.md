@@ -28,7 +28,7 @@
 这里进行前五个三角形的构建我们能够得到下面的结果。
 
 
-![Paste_Image.png](http://upload-images.jianshu.io/upload_images/3623720-f0f34a258141d075.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
+![Paste_Image.png](http://upload-images.jianshu.io/upload_images/3623720-f0f34a258141d075.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 最后经过整张图片所有三角形的变换，我们能够得到下面的结果。
 
