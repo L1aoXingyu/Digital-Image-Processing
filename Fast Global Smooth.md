@@ -8,7 +8,7 @@
 
 
 
-###1D Fast Global Smoother
+### 1D Fast Global Smoother
 
 对于二维的问题，我们可以将其分解为1维的情况，所以先求解1维的线性系统。
 
@@ -65,7 +65,7 @@ def compute_lamb(t, T, lamb_base):
     return 1.5 * 4**(T-t) / (4 ** T - 1) * lamb_base
 ```
 
-####求解一阶全局光滑线性系统
+#### 求解一阶全局光滑线性系统
 
 求解1D情况主要使用上图的(3)和(4)这两个数学公式，代码实现如下
 
@@ -100,7 +100,7 @@ def compute_1d_fast_global_smoother(lamb, f, g, sigma, ctx):
     return u.asnumpy()
 ```
 
-####完成了一维的全局光滑线性系统的求解，验证一下其是否有效
+#### 完成了一维的全局光滑线性系统的求解，验证一下其是否有效
 
 首先构造一个一维的波动输入，画出图像如下
 
@@ -131,7 +131,7 @@ plt.plot(np.arange(u.shape[0]), u)
 
 
 
-###2D image separable fast global smooth
+### 2D image separable fast global smooth
 
 对于一张2D的图片，问题非常简单，分别在水平和竖直上应用1D的solver就能够求解，只是需要注意，在计算$w_{p, q}(g)$的时候，如果是一张RGB的图片，需要在 channel 维度的向量上计算相似度。对于这种可分的方法，虽然很直观，但是会出现streaking artifact的问题，为了解决这个问题，在每一次的迭代中，可以修改$\lambda$的值，因为这个值在每次迭代中对稀疏光滑具有显著的减少。
 
@@ -185,6 +185,7 @@ plt.imshow(origin_img)
 ```
 
 ![output_15_1.png](http://upload-images.jianshu.io/upload_images/3623720-050f0470685961c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
 #### 对小尺度的图片做fast global smooth
@@ -259,8 +260,7 @@ plt.imshow(show_u)
 
 ![output_24_2.png](http://upload-images.jianshu.io/upload_images/3623720-f1a835effa1c17b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
-####对原始图片做 fast global smooth
+#### 对原始图片做 fast global smooth
 
 
 ```python
